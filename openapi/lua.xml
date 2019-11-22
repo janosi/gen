@@ -1,0 +1,37 @@
+<project 
+    xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.kubernetes</groupId>
+    <artifactId>client-lua</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <name>client-lua</name>
+    <url>http://kubernetes.io</url>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>${openapi-generator-version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${generator.spec.path}</inputSpec>
+                            <skipValidateSpec>true</skipValidateSpec>
+                            <generatorName>lua</generatorName>
+                            <output>${generator.output.path}</output>
+                            <configOptions>
+                                <packageName>${generator.package.name}</packageName>
+                                <packageVersion>${generator.client.version}</packageVersion>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
